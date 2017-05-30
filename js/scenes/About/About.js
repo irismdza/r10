@@ -1,15 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Image, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 
 import { styles } from './styles';
 
-const About = () => {
+const About = ({ codes }) => {
   return (
-    <View style={styles.container}>
-      <Text>Hello this is the about scene!</Text>
-    </View>
+    <ScrollView>
+      <Image source={require('../../assets/images/r10_logo.png')} />
+      {codes.map((code, index) => (
+          <View key={index}>
+            <Text style={styles.conductTitle}>{code.title}</Text>
+            <Text>{code.description}</Text>
+          </View>
+      ))}
+    </ScrollView>
   );
 }
 
