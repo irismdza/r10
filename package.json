@@ -7,9 +7,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/ex-navigation": "^3.0.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.6",
-    "react-native": "0.44.2"
+    "react-native": "0.44.2",
+    "react-native-linear-gradient": "^2.0.0",
+    "react-native-vector-icons": "^4.2.0",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-jest": "20.0.3",
@@ -19,5 +26,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "js/assets/fonts"
+    ]
   }
 }
