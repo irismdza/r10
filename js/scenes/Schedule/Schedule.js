@@ -1,15 +1,26 @@
 import React from 'react';
-import { ScrollView, View, Image, Text } from 'react-native';
+import { ScrollView, ListView, View, Image, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import SessionListItem from '../../components/SessionListItem';
+import SessionHeader from '../../components/SessionHeader';
+
 import { styles } from './styles';
 
-const Schedule = () => {
+const Schedule = ({ isLoading, sessions }) => {
   return (
-    <ScrollView>
-      <Text>Hello from Schedule!!!!!!!!!!!!!!!!!</Text>
-    </ScrollView>
+    <ListView
+        dataSource={sessions}
+        renderRow={(rowData) =>
+          <SessionListItem
+            currentNavigatorUID="schedule"
+            rowData={rowData}
+          />
+        }
+        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+        renderSectionHeader={(sectionData, time) => <SessionHeader time={time} />}
+    />
   );
 }
 
