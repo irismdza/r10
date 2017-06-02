@@ -1,20 +1,38 @@
-import React from 'react';
-import { ScrollView, ListView, View, Image, Text, TouchableHighlight } from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView, ListView, View, Image, Text, TouchableHighlight, LayoutAnimation } from 'react-native';
 
 import PropTypes from 'prop-types';
 import { styles } from './styles';
 
-const ConductItem = ({ codes }) => {
-  return (
-    <View>
-      {codes.map((code, index) => (
-        <View key={index}>
-          <Text style={styles.conductTitle}>{code.title}</Text>
-          <Text>{code.description}</Text>
-        </View>
-      ))}
-    </View>
-  );
+
+
+class ConductItem extends Component {
+
+constructor() {
+  super();
+
+  this.state = {
+    expanded: false,
+
+  }
+}
+
+onPress = () => {
+  LayoutAnimation.easeInEaseOut();
+    this.setState({expanded: !this.state.expanded});
+  };
+
+  render() {
+    return (
+      <View>
+        <Text onPress={this.onPress} style={styles.conductTitle}>{this.props.code.title}</Text>
+
+        { this.state.expanded &&
+          <Text>{this.props.code.description}</Text>
+        }
+      </View>
+    );
+  }
 }
 
 ConductItem.propTypes = {

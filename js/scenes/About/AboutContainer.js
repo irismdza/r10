@@ -26,7 +26,7 @@ class AboutContainer extends Component {
 
     this.state = {
       codeConduct: [],
-      isLoading: true
+      isLoading: true,
     };
   }
 
@@ -47,7 +47,13 @@ class AboutContainer extends Component {
       // }
       <ScrollView>
         <About codes={this.props.conduct.conductData} />
-        <ConductItem codes={this.props.conduct.conductData} />
+        {this.props.conduct.map((code, index) => (
+          <ConductItem
+            key={index}
+            code={code}
+          />
+        ))}
+
       </ScrollView>
     );
   }
@@ -55,7 +61,7 @@ class AboutContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        conduct: state.conduct,
+        conduct: state.conduct.conductData,
     };
 };
 
