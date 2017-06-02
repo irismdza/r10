@@ -1,15 +1,26 @@
 import React from 'react';
-import { ScrollView, View, Image, Text } from 'react-native';
+import { ScrollView, ListView, View, Image, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import SessionListItem from '../../components/SessionListItem';
+import SessionHeader from '../../components/SessionHeader';
+
 import { styles } from './styles';
 
-const Faves = () => {
+const Faves = ({ faves }) => {
   return (
-    <ScrollView>
-      <Text>Hello from FAVES!!!!!!!!!!!!!!!!!</Text>
-    </ScrollView>
+    <ListView
+        dataSource={faves}
+        renderRow={(rowData) =>
+          <SessionListItem
+            currentNavigatorUID="faves"
+            rowData={rowData}
+          />
+        }
+
+        renderSectionHeader={(sectionData, time) => <SessionHeader time={time} />}
+    />
   );
 }
 
