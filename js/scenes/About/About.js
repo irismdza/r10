@@ -3,19 +3,18 @@ import { ScrollView, View, Image, Text } from 'react-native';
 
 import PropTypes from 'prop-types';
 
+import ConductItem from '../../components/ConductItem';
 import { styles } from './styles';
 
 const About = ({ codes }) => {
   return (
-    <ScrollView>
+    <View>
       <Image source={require('../../assets/images/r10_logo.png')} />
-      {codes.map((code, index) => (
-          <View key={index}>
-            <Text style={styles.conductTitle}>{code.title}</Text>
-            <Text>{code.description}</Text>
-          </View>
-      ))}
-    </ScrollView>
+      <Text>R10 is a conference that focuses on just about any topic related to dev.</Text>
+      <Text>Date & Venue.</Text>
+      <Text>The R10 conference will take place on Tuesday, June 27 in Vancouver, BC.</Text>
+      <Text>Code of Conduct</Text>
+    </View>
   );
 }
 
