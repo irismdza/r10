@@ -11,7 +11,6 @@ import { StatusBar } from 'react-native';
 
 import Router from './navigation/router';
 import Store from './redux/store';
-import About from './scenes/About';
 
 const navigationContext = new NavigationContext({
   router: Router,
@@ -25,7 +24,9 @@ export default class R10 extends Component {
       <Provider store={Store}>
         <NavigationProvider router={Router} context={navigationContext}>
           <StatusBar barStyle="light-content" />
-          <StackNavigation initialRoute={Router.getRoute('navigation')} />
+          <StackNavigation
+            navigatorUID="root"
+            initialRoute={Router.getRoute('navigation')} />
         </NavigationProvider>
       </Provider>
     );

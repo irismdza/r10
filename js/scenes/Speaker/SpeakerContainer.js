@@ -9,11 +9,14 @@ class SpeakerContainer extends Component {
     // myProp: PropTypes.array.isRequired,
   }
 
-  static route = {
-    navigationBar: {
-      title: 'Speaker',
-    }
-  }
+  // static route = {
+  //   navigationBar: {
+  //     title: 'Speaker',
+  //     tintColor: 'white',
+  //     backgroundColor: 'black'
+  //   }
+  // }
+
 
   render() {
     return (

@@ -16,14 +16,13 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   removeFaveTxt: {
     color: 'white',
-    fontSize: 12,
+    fontSize: 16,
     backgroundColor: 'transparent',
-    height: 100,
-    width: 200
   },
   removeFaveBtn: {
     width: 200,
-    height: 100
+    height: 30,
+    borderRadius: 25
   },
 });
 
@@ -41,7 +40,10 @@ const Session = ({ sessions, speaker }) => {
       <Text>{moment.unix(sessions.start_time).format('h:mm A')}</Text>
       <Text>{sessions.description}</Text>
 
-      <Text onPress={() => goToSpeaker(sessions.speaker)}>Presented by: {speaker.name}</Text>
+      <Text onPress={() => goToSpeaker(speaker)}>Presented by:
+      <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri: speaker.image}} />
+      <Text>{speaker.name}</Text>
+      </Text>
 
       <LinearGradient
         colors={[colors.blue, colors.purple]}
