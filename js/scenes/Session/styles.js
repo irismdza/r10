@@ -26,15 +26,18 @@ export const styles = StyleSheet.create({
     lineHeight: 25,
     paddingBottom: 20
   },
-  speakerInfoTitle: {
+  speakerInfoHeading: {
     fontFamily: typography.fontMainLight,
     color: colors.mediumGrey,
     paddingBottom: 10
   },
-  speakerInfo: {
-    fontFamily: typography.fontMain,
-    justifyContent: 'center',
+  speakerInfoWrapper: {
+    flexDirection: 'row',
     alignItems: 'center',
+  },
+  speakerName: {
+    fontFamily: typography.fontMain,
+    paddingLeft: 10
   },
   buttonWrapper: {
     marginTop: 15,

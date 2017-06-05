@@ -8,7 +8,9 @@ import {
 
 import Router from './router';
 
-import { Text } from 'react-native';
+
+import { Text, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { colors, typography } from '../config/styles';
@@ -19,19 +21,23 @@ const defaultRouteConfig = {
     titleStyle: {
       fontFamily: typography.fontMain
     },
-        /*renderBackground: () => {
+    renderBackground: () =>
       <LinearGradient
         style={styles.linearGradient}
         colors={[colors.purple, colors.red]}
-        start={{x: 1, y: 0}}
-        end={{x: -1, y:1}}
-        locations={[0, .6]}
+        start={{x: 0.25, y: 1}}
+        end={{x: 1, y: 0.25}}
       />
-    }*/
-    backgroundColor: colors.red
   }
+}
 
-};
+const styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+  }
+});
 
 class NavigationLayout extends Component {
 
@@ -53,6 +59,7 @@ class NavigationLayout extends Component {
     };
     return <Text style={titleStyle}>{title}</Text>
   }
+
 
   render() {
     return(

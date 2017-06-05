@@ -21,22 +21,24 @@ import { styles } from './styles';
       }*/
 const Session = ({ sessions, speaker }) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.sessionLocation}>{sessions.location}</Text>
 
       <Text style={styles.sessionTitle}>{sessions.title}</Text>
       <Text style={styles.sessionTime}>{moment.unix(sessions.start_time).format('h:mm A')}</Text>
       <Text style={styles.sessionDescription}>{sessions.description}</Text>
 
-      <Text style={styles.speakerInfoTitle}>Presented by:</Text>
-      <Text onPress={() => goToSpeaker(speaker)} style={styles.speakerInfo}>
+      <Text style={styles.speakerInfoHeading}>Presented by:</Text>
+      <View style={styles.speakerInfoWrapper}>
         <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri: speaker.image}} />
-        <Text>{speaker.name}</Text>
-      </Text>
+        <Text onPress={() => goToSpeaker(speaker)} style={styles.speakerName}>{speaker.name}</Text>
+      </View>
 
       <View style={styles.buttonWrapper}>
       <LinearGradient
-        colors={[colors.blue, colors.purple]}
+        colors={[colors.purple, colors.blue]}
+        start={{x: 0.1, y: 1}}
+        end={{x: 1, y: 1.1}}
         style={styles.faveButton}>
         <Text
           style={styles.faveButtonText}
@@ -47,7 +49,9 @@ const Session = ({ sessions, speaker }) => {
       </LinearGradient>
 
       <LinearGradient
-        colors={[colors.blue, colors.purple]}
+        colors={[colors.purple, colors.blue]}
+        start={{x: 0.1, y: 1}}
+        end={{x: 1, y: 1.1}}
         style={styles.faveButton}>
         <Text
           style={styles.faveButtonText}
@@ -58,7 +62,7 @@ const Session = ({ sessions, speaker }) => {
       </LinearGradient>
       </View>
 
-    </View>
+    </ScrollView>
   );
 }
 
