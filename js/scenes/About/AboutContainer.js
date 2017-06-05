@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ActivityIndicator, ScrollView, View } from 'react-native';
+import { ActivityIndicator, ScrollView, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import About from './About';
@@ -55,7 +55,9 @@ class AboutContainer extends Component {
             code={code}
           />
         ))}
-
+      <View style={styles.footerContainer}>
+        <Text style={styles.baseText}>&copy; RED Academy 2017</Text>
+      </View>
       </ScrollView>
     );
   }

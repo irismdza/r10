@@ -20,5 +20,11 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: typography.fontMain,
     paddingVertical: 20
+  },
+  footerContainer: {
+    width: '100%',
+    borderTopWidth: 1,
+    borderColor: colors.lightGrey,
+    paddingVertical: 20
   }
 });
