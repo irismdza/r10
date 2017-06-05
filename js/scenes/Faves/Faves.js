@@ -18,7 +18,7 @@ const Faves = ({ faves }) => {
             rowData={rowData}
           />
         }
-
+        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         renderSectionHeader={(sectionData, time) => <SessionHeader time={time} />}
     />
   );
