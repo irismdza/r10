@@ -9,6 +9,8 @@ import ConductItem from '../../components/ConductItem';
 import { connect } from 'react-redux';
 import { _fetchConduct } from '../../redux/modules/conduct';
 
+import { styles } from './styles';
+
 class AboutContainer extends Component {
 
   static propTypes = {
@@ -45,7 +47,7 @@ class AboutContainer extends Component {
       // if (this.state.isLoading) {
       //   <ActivityIndicator />
       // }
-      <ScrollView>
+      <ScrollView style={styles.container}>
         <About codes={this.props.conduct.conductData} />
         {this.props.conduct.map((code, index) => (
           <ConductItem

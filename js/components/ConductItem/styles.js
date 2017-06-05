@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
+import { colors, typography } from '../../config/styles';
 
 export const styles = StyleSheet.create({
-  container: {
-    padding: '5%',
-  },
-
   conductTitle: {
-    color: '#9963ea',
-    marginTop: '2%',
-    marginBottom: '2%'
+    fontFamily: typography.fontMain,
+    color: colors.purple,
+    paddingBottom: 18
   },
-
-  logo: {
+  conductText: {
+    fontFamily: typography.fontMainLight,
+    paddingBottom: 18
   }
+
 });
