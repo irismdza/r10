@@ -11,15 +11,15 @@ import { styles } from './styles';
 const Schedule = ({ isLoading, sessions }) => {
   return (
     <ListView
-        dataSource={sessions}
-        renderRow={(rowData) =>
-          <SessionListItem
-            currentNavigatorUID="schedule"
-            rowData={rowData}
-          />
-        }
-        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-        renderSectionHeader={(sectionData, time) => <SessionHeader time={time} />}
+      dataSource={sessions}
+      renderRow={(rowData) =>
+        <SessionListItem
+          currentNavigatorUID="schedule"
+          rowData={rowData}
+        />
+      }
+      renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+      renderSectionHeader={(sectionData, time) => <SessionHeader time={time} />}
     />
   );
 }

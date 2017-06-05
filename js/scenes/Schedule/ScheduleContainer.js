@@ -19,10 +19,9 @@ class ScheduleContainer extends Component {
     }
   }
 
-componentDidMount() {
-  this.props.fetchSessions();
-}
-
+  componentDidMount() {
+    this.props.fetchSessions();
+  }
 
   render() {
     return (
@@ -41,24 +40,23 @@ const ds = new ListView.DataSource({
 });
 
 
-
 const mapStateToProps = (state) => {
-    return {
-      dataSource: ds.cloneWithRowsAndSections(
-        state.sessions.sessionsData.dataBlob,
-        state.sessions.sessionsData.sectionIds,
-        state.sessions.sessionsData.rowIds
-      ),
-      isLoading: state.sessions.isLoading
-    };
+  return {
+    dataSource: ds.cloneWithRowsAndSections(
+      state.sessions.sessionsData.dataBlob,
+      state.sessions.sessionsData.sectionIds,
+      state.sessions.sessionsData.rowIds
+    ),
+    isLoading: state.sessions.isLoading
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchSessions() {
-        dispatch(_fetchSessions())
-      }
+  return {
+    fetchSessions() {
+      dispatch(_fetchSessions())
     }
+  }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer);
