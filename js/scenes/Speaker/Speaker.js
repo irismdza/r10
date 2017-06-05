@@ -23,8 +23,10 @@ const Speaker = ({ speaker, url }) => {
         <Image style={styles.speakerImage} source={{uri: speaker.image}} />
         <Text style={styles.speakerName}>{speaker.name}</Text>
         <Text style={styles.speakerBio}>{speaker.bio}</Text>
+        <TouchableHighlight onPress={() => url()}>
+          <Text url={speaker.url}>Read More on Wikipedia</Text>
+        </TouchableHighlight>
       </View>
-      <Text url={speaker.url}>Read More</Text>
     </ScrollView>
   );
 }

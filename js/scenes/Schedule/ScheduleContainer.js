@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, ListView } from 'react-native';
 import PropTypes from 'prop-types';
+import realm from '../../config/models';
 
 import { connect } from 'react-redux';
 import { _fetchSessions } from '../../redux/modules/sessions';
@@ -21,6 +22,10 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.fetchSessions();
+    realm.addListener('change', () => {
+      console.log('listening', );
+      this.props.fetchSessions();
+    })
   }
 
   render() {
