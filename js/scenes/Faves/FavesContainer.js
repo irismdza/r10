@@ -23,14 +23,6 @@ class FavesContainer extends Component {
     }
   }
 
-componentDidMount() {
-  this.props.fetchFaves();
-  realm.addListener('change', () => {
-    this.props.fetchFaves();
-  })
-}
-
-
   render() {
     return (
         <Faves
@@ -60,12 +52,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchFaves() {
-        dispatch(_fetchFaves())
-      }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FavesContainer);
+export default connect(mapStateToProps)(FavesContainer);

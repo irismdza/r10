@@ -28,6 +28,7 @@ class SessionContainer extends Component {
         sessions={this.props.sessionData}
         speaker={this.props.speaker}
         isLoading={this.props.isLoading}
+        faves={this.props.faves}
       />
     );
   }
@@ -36,7 +37,8 @@ class SessionContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      speaker: state.speaker.speakerData
+      speaker: state.speaker.speakerData,
+      faves: state.faves.favesArray
     };
 };
 

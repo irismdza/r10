@@ -5,10 +5,20 @@ import realm from '../../config/models';
 
 import { connect } from 'react-redux';
 import { _fetchSessions } from '../../redux/modules/sessions';
+import { _fetchFaves } from '../../redux/modules/faves';
 
 import Schedule from './Schedule';
 
 class ScheduleContainer extends Component {
+
+  constructor() {
+    super();
+    realm.addListener('change', () => {
+      console.log('listening', );
+      this.props.fetchSessions();
+      this.props.fetchFaves();
+    })
+  }
 
   static propTypes = {
     // myProp: PropTypes.array.isRequired,
@@ -22,21 +32,17 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.fetchSessions();
-    realm.addListener('change', () => {
-      console.log('listening', );
-      this.props.fetchSessions();
-    })
+    this.props.fetchFaves();
   }
 
   render() {
     return (
-        <Schedule
-          sessions={this.props.dataSource}
-          isLoading={this.props.isLoading}
-        />
+      <Schedule
+        sessions={this.props.dataSource}
+        isLoading={this.props.isLoading}
+      />
     );
   }
-
 }
 
 const ds = new ListView.DataSource({
@@ -52,7 +58,9 @@ const mapStateToProps = (state) => {
       state.sessions.sessionsData.sectionIds,
       state.sessions.sessionsData.rowIds
     ),
-    isLoading: state.sessions.isLoading
+    isSessionsLoading: state.sessions.isLoading,
+    isFavesLoading: state.faves.isLoading,
+    favesArray: state.faves.favesArray
   };
 };
 
@@ -60,6 +68,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchSessions() {
       dispatch(_fetchSessions())
+    },
+    fetchFaves() {
+      dispatch(_fetchFaves())
     }
   }
 };
