@@ -51,10 +51,10 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.white,
     backgroundColor: 'transparent',
+    paddingVertical: 10
   },
   faveButton: {
     width: 175,
-    height: 38,
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center'

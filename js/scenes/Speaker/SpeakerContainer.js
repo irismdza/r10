@@ -13,12 +13,12 @@ class SpeakerContainer extends Component {
     // myProp: PropTypes.array.isRequired,
   }
 
-  handleClick = () => {
-    Linking.canOpenURL(this.props.url).then(supported => {
+  handleClick = (url) => {
+    Linking.canOpenURL(url).then(supported => {
       if (supported) {
-        Linking.openURL(this.props.url);
+        Linking.openURL(url);
       } else {
-        console.log('Cannot open URI: ' + this.props.url);
+        console.log('Cannot open URI: ' + url);
       }
     });
   };
@@ -28,7 +28,7 @@ class SpeakerContainer extends Component {
       <Speaker
         speaker={this.props.speakerData}
         isLoading={this.props.isLoading}
-        url={this.handleClick}
+        openUrl={this.handleClick}
       />
     );
   }

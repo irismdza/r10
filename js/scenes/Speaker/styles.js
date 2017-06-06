@@ -42,5 +42,19 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMainLight,
     fontSize: 14,
     lineHeight: 22
-  }
+  },
+    faveButtonText: {
+    fontFamily: typography.fontMain,
+    fontSize: 15,
+    color: colors.white,
+    backgroundColor: 'transparent',
+    paddingHorizontal: 15,
+    paddingVertical: 10
+  },
+  faveButton: {
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20
+  },
 });
